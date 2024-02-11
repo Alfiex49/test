@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Alfred Mavwu Blogsite">
+    <meta name="author" content="Alfred Mavwu">
+
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Candal|Lora">
+    <script src="https://kit.fontawesome.com/09e2129185.js" crossorigin="anonymous"></script>
+
+    <title>Welcome to the dashboard</title>
+</head>
+
+<body>
+    <header>
+        <div class="site-heading-container">
+            <h1 id="top" class="site-heading"><span>A.</span>Mavwu</h1>
+        </div>
+
+        <i class="fa fa-bars menu-toggle"></i>
+        <ul class="nav">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#posts">My Posts</a< /li>
+            <li><a href="#settings">Settings</a></li>
+            <li><a href="#contacts">Contact Us</a></li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-user"></i>
+                    Account
+                    <i class="fa fa-chevron-down drop-icon"></i>
+                </a>
+                <ul>
+                    <li><a class="blogeditor" href="/main/blogeditor/blogeditor.html">BlogEditor</a></li>
+                    <li><a class="logout" href="/logout">Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+
+    <div class="page-wrapper">
+        <main>
+
+            <section id="home">
+                <span style="float: center;" id="welcome-user"></span>
+                <p>Welcome to our vibrant community of bloggers! We're thrilled to have you on board. Your journey into
+                    the world of expression and creativity begins now. Whether you're a seasoned writer or just starting
+                    to explore the realm of blogging, this is your space to share your thoughts, experiences, and
+                    stories. Dive into the art of storytelling, engage with fellow bloggers, and make your mark. Your
+                    unique voice adds value to our community, and we can't wait to see the amazing content you'll
+                    contribute. Happy blogging</p>
+
+                <br>
+                <button><a href="/main/blogeditor/blogeditor.html">Create A Post</a></button>
+                <button onclick="">View Posts</button>
+                <Button onclick="">View Your Posts</Button>
+
+            </section>
+        </main>
+    </div>
+
+    <div class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h1 class="logo-text"><span>A.</span>Mavwu</h1>
+                <p>Paragraph description of site </p>
+
+                <div class="contact">
+                    <span><i class="fas fa-phone"></i> &nbsp; +260 972073035 </span><br>
+                    <span><i class="fas fa-envelope"></i> &nbsp; viwaplayz@gmail.com </span> <br>
+                </div>
+
+                <div class="socials">
+                    <hr>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://wa.me/+260972073035"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-section links">
+                <h2>Quick Links</h2>
+                <br>
+                <ul>
+                    <div class="quick-links">
+                        <li><a href="#">My blogs</a></li>
+                        <li><a href="#">Recent Posts</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">BlogEditor</a></li>
+                        <li><a style="color:red" href="#">Logout</a></li>
+                    </div>
+
+                    <div class="button">
+                        <button class="button-to-top">
+                            <a style="text-decoration: none; color: white" href="#top">Back to Top</a>
+                        </button>
+                    </div>
+                </ul>
+            </div>
+
+            <div class="footer-section contact-form" id="contacts">
+                <h2>Contact Us</h2>
+                <br>
+                    <textarea name="" id="userMessage" class="text-input contact-input"
+                        placeholder="Enter your message...."></textarea>
+                    <button id="sendEmailButton" class="submit btn btn-big">
+                        <i class="fas fa-envelope"></i>
+                        Send
+                    </button>
+            </div>
+            
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Mavwu | Designed by Alfred Mavwu
+        </div>
+        
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Extract the username from the URL
+            const params = new URLSearchParams(window.location.search);
+            const username = params.get('username');
+
+            // Update the placeholder with the username
+            if (username) {
+                document.getElementById('welcome-user').innerText = `Welcome, ${username}!`;
+            }
+        });
+
+        // to contact me
+        document.getElementById('sendEmailButton').addEventListener('click', function() {
+            const me = 'viwaplayz@gmail.com'
+            const userMessage = document.getElementById('userMessage').value;
+
+            if(userMessage) {
+                const subject = 'Feedback'
+                const body = encodeURIComponent(userMessage);
+
+                const mailToLink = `mailto:${me}?subject=${subject}&body=${body}`;
+                window.location.href = mailToLink;
+            }
+            else {
+                alert('Email not sent. Please enter a message');
+            }
+        });
+
+        // smooth scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const backToTopButton = document.getElementsByClassName('button-to-top');
+
+            if(backToTopButton) {
+                backToTopButton.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+
+    </script>
+</body>
+
+</html>
