@@ -117,7 +117,7 @@ header * {
 }
 
 .footer .footer-content {
-    height: 450px;
+    height: 400px;
     display: flex;
     z-index: 2;
     text-align: center;
@@ -269,12 +269,12 @@ header * {
     .footer .footer-content {
         flex-direction: column;
         font-size: .7em;
-        padding: 50px;
-        border: none;
+        padding: 0px;
+        margin-bottom: 0;
     }
 
     .footer .footer-content .contact-form {
-        
+        padding: 10px ;
         height: 100%;
     }
 
@@ -291,7 +291,7 @@ header * {
     }
 
     .footer .footer-bottom {
-        top: 570px;
+        top: 660px;
     }
 
     .footer .footer-content .footer-section {
