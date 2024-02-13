@@ -93,6 +93,15 @@ header .menu-toggle {
     display: none;
 }
 
+header .menu-close {
+    display: none;
+}
+
+header .menu-toggle:hover {
+    color: rgb(230, 226, 226);
+    transition: all .3s;
+}
+
 header * {
     color: white;
 }
@@ -255,7 +264,28 @@ header * {
 
     header ul {
         width: 100px;
-        background-color:rgb(4, 4, 187) ;
+        display: none;
+    }
+
+    header .menu-toggle {
+        display: block;
+        float: right;
+        padding: 20px;
+        font-size: large;
+    }
+
+    header .menu-close {
+        font-size: medium;
+        padding-left: 50px;
+        padding-top: 0px;
+        margin: 0;
+    }
+
+    header ul.show {
+        display: block;
+        transition: all .3s;
+        background: rgb(2, 2, 227);
+        padding-top: 30px;
     }
 
     #welcome-user {
@@ -285,16 +315,61 @@ header * {
     }
 }
 
-@media only screen and (min-width: 751px) {
+
+
+@media only screen and (min-width: 751px) and (max-width: 900px) {
     .footer .footer-content {
         flex-direction: column;
+        height: 100%;
+    }
+
+    header ul {
+        width: 100px;
+        display: none;
+        padding-top: 40px;
+    }
+
+    header .menu-toggle {
+        display: block;
+        float: right;
+        padding: 20px;
+        font-size: large;
+    }
+
+    header .menu-close {
+        font-size: medium;
+        padding-left: 50px;
+        padding-top: 0px;
+        margin: 0;
+    }
+
+    header ul.show {
+        display: block;
+        transition: all .3s;
+        background: rgb(2, 2, 227);
+        padding-top: 30px;
     }
 
     .footer .footer-bottom {
-        top: 660px;
+        top: 550px;
     }
 
     .footer .footer-content .footer-section {
-        top: 60px;
+        top: 0px;
+    }
+}
+
+@media only screen and (min-width: 1836px) {
+    .footer .footer-content {
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .footer .footer-bottom {
+        top: 520px;
+    }
+
+    .footer .footer-content .footer-section {
+        top: 0px;
     }
 }
