@@ -20,10 +20,14 @@
             <h1 id="top" class="site-heading"><span>A.</span>Mavwu</h1>
         </div>
 
-        <i class="fa fa-bars menu-toggle"></i>
-        <ul class="nav">
+        <i class="fa fa-bars menu-toggle" id="toggle"></i>
+        
+
+        <ul class="nav" id="navMenu">
+            <i class="fa fa-x menu-close" id="close"></i>
+            
             <li><a href="#home">Home</a></li>
-            <li><a href="#posts">My Posts</a< /li>
+            <li><a href="#posts">My Posts</a</li>
             <li><a href="#settings">Settings</a></li>
             <li><a href="#contacts">Contact Us</a></li>
             <li>
@@ -65,7 +69,9 @@
         <div class="footer-content">
             <div class="footer-section about">
                 <h1 class="logo-text"><span>A.</span>Mavwu</h1>
-                <p>Paragraph description of site </p>
+                <p>I am Zambian male currently pursing a Bachelor's degree in Computer Science at Mulungushi University in Zambia. 
+                    I am passionate about building websites and apps, creating content and coding.
+                     I love turning ideas into innovative solutions.</p>
 
                 <div class="contact">
                     <span><i class="fas fa-phone"></i> &nbsp; +260 972073035 </span><br>
@@ -93,7 +99,7 @@
                     </div>
 
                     <div class="button">
-                        <button class="button-to-top">
+                        <button class="button-to-top" id="top">
                             <a style="text-decoration: none; color: white" href="#top">Back to Top</a>
                         </button>
                     </div>
@@ -149,7 +155,7 @@
 
         // smooth scroll
         document.addEventListener('DOMContentLoaded', () => {
-            const backToTopButton = document.getElementsByClassName('button-to-top');
+            const backToTopButton = document.getElementById('top');
 
             if(backToTopButton) {
                 backToTopButton.addEventListener('click', () => {
@@ -159,6 +165,31 @@
                     });
                 });
             }
+        });
+
+        // show nav menu on small devices
+        document.addEventListener('DOMContentLoaded', () => {
+            const navMenu = document.getElementById('navMenu');
+            const menuToggle = document.getElementById('toggle');
+            const closeMenu = document.getElementById('close');
+
+            menuToggle.addEventListener('click', () => {
+                console.log("menu toggle clicked");
+                navMenu.classList.toggle('show');
+
+                // then hide menu button and show close button
+                menuToggle.style.display = "none";
+                closeMenu.style.display = "block";
+            });
+
+            closeMenu.addEventListener('click', () => {
+                console.log("close menu clicked");
+                navMenu.classList.remove('show');
+
+                // then hide close button and show menu button
+                menuToggle.style.display = 'inline-block';
+                closeMenu.style.display = 'none';
+            });
         });
 
     </script>
